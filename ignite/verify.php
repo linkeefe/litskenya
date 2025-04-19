@@ -25,9 +25,9 @@ if ($_SERVER['PHP_AUTH_USER'] !== $validUsername || $_SERVER['PHP_AUTH_PW'] !== 
 // If the credentials are correct, proceed with the database connection and functionality
 // Database connection parameters
 $host = 'localhost';
-$dbname = 'ignite';
-$username = 'root';
-$password = '';
+$dbname = 'hgardtegth';
+$username = 'hgardtegth';
+$password = '5qyRJqQtQT';
 
 try {
     // Connect to the database

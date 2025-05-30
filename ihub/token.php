@@ -1,5 +1,5 @@
 <?php
-$accessToken = 'a756a2afa360d79f2be0952242df0164951072fe';
+$accessToken = '6af19e151805e6633f96f37712947939f036bae8';
 $invoiceId = '6839964a9be726d5d0434d9e';
 $amount = 20.00;
 $paymentDate = '2025-05-30';

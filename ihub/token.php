@@ -1,5 +1,5 @@
 <?php
-$accessToken = '7f01331351a41e4f6130295613d88b9efad3b57b'; // Retrieved using OAuth token request
+$accessToken = 'a756a2afa360d79f2be0952242df0164951072fe';
 $invoiceId = '6839964a9be726d5d0434d9e';
 $amount = 20.00;
 $paymentDate = '2025-05-30';
@@ -16,8 +16,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
     'invoiceId' => $invoiceId,
     'amount' => $amount,
     'paymentDate' => $paymentDate,
-    'paymentMethod' => 'Via PesaPal',
-    'notes' => 'M-Pesa TXN: XYZ123 Testing testing'
+    'paymentMethod' => 'manual',
+    'notes' => 'Paid via PesaPal - M-Pesa TXN: XYZ123'
 ]));
 
 $response = curl_exec($ch);
@@ -27,6 +27,8 @@ curl_close($ch);
 if ($httpCode === 201) {
     echo "✅ Payment recorded and invoice updated.\n";
 } else {
-    echo "❌ Failed to register payment. Response: $response\n";
+    echo "❌ Failed to register payment.\n";
+    echo "HTTP Code: $httpCode\n";
+    echo "Response: $response\n";
 }
 ?>

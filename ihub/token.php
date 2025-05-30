@@ -1,5 +1,5 @@
 <?php
-$accessToken = 'abe7aa3f03503ab800b7a786b0e0ea9fabe58f5f'; // Retrieved using OAuth token request
+$accessToken = '7f01331351a41e4f6130295613d88b9efad3b57b'; // Retrieved using OAuth token request
 $invoiceId = '6839964a9be726d5d0434d9e';
 $amount = 20;
 $paymentDate = '2025-05-30';

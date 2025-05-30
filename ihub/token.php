@@ -1,10 +1,11 @@
 <?php
 $accessToken = '7f01331351a41e4f6130295613d88b9efad3b57b'; // Retrieved using OAuth token request
 $invoiceId = '6839964a9be726d5d0434d9e';
-$amount = 20;
+$amount = 20.00;
 $paymentDate = '2025-05-30';
 
 $ch = curl_init("https://api.officernd.com/v2/payments");
+
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [

@@ -1,33 +1,31 @@
 <?php
-$clientId = '9CWdnstUmrbWYUNV';
-$clientSecret = 'GRKqHGSPhYQTQcb8N2IMqG58oIkbCRnr';
+$accessToken = 'abe7aa3f03503ab800b7a786b0e0ea9fabe58f5f'; // Retrieved using OAuth token request
+$invoiceId = '6839964a9be726d5d0434d9e';
+$amount = 20;
+$paymentDate = '2025-05-30';
 
-$url = "https://app.officernd.com/oauth/token";
-
-$data = http_build_query([
-    'grant_type' => 'client_credentials',
-    'client_id' => $clientId,
-    'client_secret' => $clientSecret,
-    'audience' => 'https://api.officernd.com'
-]);
-
-$ch = curl_init($url);
+$ch = curl_init("https://api.officernd.com/v2/payments");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "Content-Type: application/x-www-form-urlencoded"
+    "Authorization: Bearer $accessToken",
+    "Content-Type: application/json"
 ]);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
+    'invoiceId' => $invoiceId,
+    'amount' => $amount,
+    'paymentDate' => $paymentDate,
+    'paymentMethod' => 'Via PesaPal',
+    'notes' => 'M-Pesa TXN: XYZ123 Testing testing'
+]));
 
 $response = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-if ($httpCode == 200) {
-    $result = json_decode($response, true);
-    $accessToken = $result['access_token'];
-    echo "✅ Access token: " . $accessToken;
+if ($httpCode === 201) {
+    echo "✅ Payment recorded and invoice updated.\n";
 } else {
-    echo "❌ Failed to get token. Response: $response";
+    echo "❌ Failed to register payment. Response: $response\n";
 }
 ?>

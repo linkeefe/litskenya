@@ -6,10 +6,6 @@ $accessToken = 'b7d71b3416fafd8c18c29488469fd55215a27b4b'; // Replace with your 
 
 $url = "https://app.officernd.com/api/v2/organizations/{$orgSlug}/payments/{$paymentId}";
 
-// JSON payload for updating the payment
-$data = json_encode([
-    'status' => 'received' // Adjust based on actual API requirements
-]);
 
 // Initialize cURL session
 $ch = curl_init($url);

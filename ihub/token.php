@@ -1,7 +1,7 @@
 
 
 <?php
-$invoiceId = 'ORD-INV-5056'; // Replace with actual Invoice ID
+$invoiceId = 'ORD-INV-5058'; // Replace with actual Invoice ID
 $accessToken = 'b7d71b3416fafd8c18c29488469fd55215a27b4b'; // Replace with your OfficeRnD API token
 
 $url = "https://api.officernd.com/v2/billing/invoices/{$invoiceId}/payments";
@@ -37,3 +37,4 @@ if (curl_errno($ch)) {
 }
 
 curl_close($ch);
+
